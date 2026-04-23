@@ -1,0 +1,16 @@
+if [[ -f /etc/profile ]]; then
+  . /etc/profile
+fi
+
+if [[ -f "$HOME/.bash_profile" ]]; then
+  . "$HOME/.bash_profile"
+elif [[ -f "$HOME/.bash_login" ]]; then
+  . "$HOME/.bash_login"
+elif [[ -f "$HOME/.profile" ]]; then
+  . "$HOME/.profile"
+fi
+
+repos() {
+  source "$HOME/.config/wezterm/repo-launcher.sh"
+  repo_launcher_main "$@"
+}

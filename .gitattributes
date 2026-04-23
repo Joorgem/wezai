@@ -1,0 +1,5 @@
+# Force LF for shell scripts, lua, and bashrc (CRLF breaks bash execution)
+*.sh    text eol=lf
+*.lua   text eol=lf
+repos   text eol=lf
+bashrc.wezterm  text eol=lf
