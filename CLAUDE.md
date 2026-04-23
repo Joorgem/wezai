@@ -11,7 +11,7 @@ Setup de terminal para Windows + Git Bash + WezTerm + Claude Code:
 - **Statusline Claude** (`claude/statusline.sh`) powerline em 2 linhas com Nerd Font.
 - **`install.sh`** que copia tudo para `~/.config/wezterm/` e `~/.claude/` com backup automático.
 
-Distribuído via repo privado no GitHub. Colaboradores clonam e rodam `./install.sh` para aplicar. Atualizações são `git pull && ./install.sh`.
+Distribuído como repo público no GitHub (MIT). Usuários clonam e rodam `./install.sh` para aplicar. Atualizações são `git pull && ./install.sh`.
 
 ## Alvo
 
@@ -52,8 +52,14 @@ repos → Enter → BRANCHES → Enter → MODE → Enter → TARGET → ação
 - `load_repos` / `load_pins` / `save_pins` / `toggle_pin` — estado
 - `build_repo_items` / `run_repo_nav` / `run_repo_search` / `select_repo` — Tela 1 & 2
 - `list_branches` / `resolve_worktree` / `prompt_new_branch` / `build_branch_items` / `run_branch_nav` / `run_branch_search` / `select_branch` — Tela 3 (branches)
-- `confirm_unsafe` / `select_launch_mode` — Tela 4 (modes)
-- `prepare_launch_mode` — traduz mode → `LAUNCH_ARGS`
+- `BUILTIN_MODE_IDS` / `BUILTIN_MODE_LABELS` — hardcoded, keep in sync com `prepare_launch_mode`
+- `load_custom_modes` / `save_custom_modes` / `find_custom_command` — state em `custom-modes.tsv` (TAB-separated: label\tcommand)
+- `load_mode_order` / `save_mode_order` — state em `mode-order.txt` (um ID por linha, `terminal` / `claude` / `custom:<label>`)
+- `render_mode_meta` — dispatch por mode ID → linha colorida (built-ins são hardcoded por case, customs usam label + command truncado)
+- `add_custom_mode` / `delete_custom_mode` — prompt inline (pós-fzf), rejeita labels reservados, confirma deleção
+- `edit_modes_screen` — tela full-screen separada (sem fzf), lê `read -rsn1`, setas movem o item selecionado, `j/k` alt vim-style, Enter salva, Esc cancela
+- `confirm_unsafe` / `select_launch_mode` — Tela 4 (modes) — loop com `--expect=esc,n,d,e`, recarrega custom+order a cada iteração
+- `prepare_launch_mode` — traduz mode → `LAUNCH_ARGS`. Customs rodam via `bash -c "$cmd"` pra suportar shell metacharacters
 - `select_target` — Tela 5 (compass, bash puro, sem fzf)
 - `open_split_pane` / `launch_in_current_pane` / `launch_in_split` — efeitos finais via `wezterm cli`
 - `repo_launcher_main` — orquestra
@@ -170,6 +176,8 @@ Propositadamente fora:
 - `~/.claude/agents/*`, `~/.claude/commands/*`, `~/.claude/rules/*`
 - `~/.credentials.json` (nunca no git)
 - `~/.local/state/wezterm/repo-pins.txt` (pins individuais)
+- `~/.local/state/wezterm/custom-modes.tsv` (custom modes por user)
+- `~/.local/state/wezterm/mode-order.txt` (ordem customizada dos modes)
 
 Usuários configuram esses separadamente. Este repo é só o "shell visível" do terminal.
 
@@ -200,6 +208,6 @@ Colaboradores puxam com `git pull && ./install.sh`.
 
 ## Contatos
 
-- Repo: https://github.com/Joorgem/terminal-setup (privado)
+- Repo: https://github.com/Joorgem/terminal-setup (MIT, público)
 - Owner: Joorgem
 - Colaboradores atuais: SuperXitao
