@@ -1,0 +1,40 @@
+name: Feature request
+description: Suggest a new screen, key binding, mode, or behavior
+title: "[feat]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea. Keep the scope tight — this project is intentionally small and opinionated.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the friction you're hitting today.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What would you like the launcher or statusline to do? Include key bindings, screen flow, and expected output if relevant.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Workarounds you've tried or other tools that solve this.
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope confirmation
+      options:
+        - label: This fits the Windows + Git Bash + WezTerm target (not a port request)
+        - label: This doesn't require a daemon, database, or persistent background process
+        - label: I've read the project scope in `CONTRIBUTING.md`

@@ -1,0 +1,75 @@
+name: Bug report
+description: Report a bug in the launcher, statusline, or install script
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please fill in the fields below so we can reproduce.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Clear description of what went wrong and what you expected.
+      placeholder: "When I press Enter on the branches screen, ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run `repos`
+        2. Select repo X
+        3. ...
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Windows version
+      placeholder: "Windows 11 Pro 26200"
+    validations:
+      required: true
+
+  - type: input
+    id: wezterm
+    attributes:
+      label: WezTerm version
+      description: Output of `wezterm --version`
+    validations:
+      required: true
+
+  - type: input
+    id: fzf
+    attributes:
+      label: fzf version
+      description: Output of `fzf --version` (requires >= 0.70)
+    validations:
+      required: true
+
+  - type: input
+    id: gitbash
+    attributes:
+      label: Git Bash version
+      description: Output of `bash --version | head -1`
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Relevant log
+      description: If the issue involves worktrees, paste the tail of `~/.local/state/wezterm/worktree.log`.
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I ran `bash -n wezterm/repo-launcher.sh` and there are no syntax errors
+        - label: I tested in a fresh WezTerm window (not the one that hit the bug)
+        - label: I searched existing issues and this isn't a duplicate
