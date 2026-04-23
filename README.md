@@ -52,13 +52,13 @@ Built-ins: `shell`, `claude`, `claude --resume`, `codex`, `claude UNSAFE` (with 
 
 ### TARGET — compass for pane direction
 
-<img alt="target compass" src="docs/screenshots/TARGET.png" width="900">
+<img alt="target compass" src="docs/screenshots/TARGET.png" width="600">
 
 Arrow keys pick the split direction; `Enter` opens in the current pane.
 
 ### Statusline — inside Claude Code
 
-<img alt="statusline" src="docs/screenshots/statusline.png" width="900">
+<img alt="statusline" src="docs/screenshots/statusline.png" width="600">
 
 Two lines at the bottom of every Claude session: project · branch · model · cost · context · 5-hour rate-limit countdown.
 
