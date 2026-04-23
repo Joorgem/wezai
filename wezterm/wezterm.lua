@@ -3,10 +3,27 @@ local mux = wezterm.mux
 local config = wezterm.config_builder()
 
 local home = os.getenv('USERPROFILE') or os.getenv('HOME') or ''
-local github_dir = home .. '\\Documents\\github'
 local wezterm_dir = home .. '\\.config\\wezterm'
-local git_bash = 'C:\\Program Files\\Git\\bin\\bash.exe'
 local wezterm_bashrc = wezterm_dir .. '\\bashrc.wezterm'
+
+-- github_dir: override via GITHUB_DIR env var (matches repo-launcher.sh behaviour)
+local github_dir = os.getenv('GITHUB_DIR') or (home .. '\\Documents\\github')
+
+-- git_bash: override via WEZAI_GIT_BASH, else try common install locations
+local function find_git_bash()
+  local candidates = {
+    'C:\\Program Files\\Git\\bin\\bash.exe',
+    home .. '\\AppData\\Local\\Programs\\Git\\bin\\bash.exe',
+    'C:\\Program Files (x86)\\Git\\bin\\bash.exe',
+  }
+  for _, path in ipairs(candidates) do
+    local f = io.open(path, 'r')
+    if f then f:close(); return path end
+  end
+  return candidates[1]  -- fallback even if missing; WezTerm will surface a clear error
+end
+
+local git_bash = os.getenv('WEZAI_GIT_BASH') or find_git_bash()
 
 local function append_windows_path(path_value, extra)
   local lower_path = path_value:lower()

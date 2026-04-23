@@ -157,6 +157,18 @@ Segue o padrão: função `run_<tela>_nav` + `build_<tela>_items` + orquestrador
 ### Mudar paleta
 `FZF_THEME` no topo + as variáveis `c_green`/`c_text`/`c_dim`/`c_sep`/`c_red` em cada função. São truecolor ANSI — `\033[38;2;R;G;Bm`.
 
+## Variáveis de ambiente
+
+O repo assume defaults razoáveis mas permite override via env var — útil quando outro computador tem Git instalado fora dos locais padrão ou repos em `C:\dev` em vez de `~/Documents/github`.
+
+| Var | Default | Onde é lido |
+|---|---|---|
+| `GITHUB_DIR` | `~/Documents/github` | `wezterm.lua` (cwd inicial) **e** `repo-launcher.sh` (load_repos) |
+| `WEZAI_GIT_BASH` | `find_git_bash()` — tenta `C:\Program Files\Git\`, `~/AppData/Local/Programs/Git/`, `C:\Program Files (x86)\Git\` | `wezterm.lua` (default_prog do shell) |
+| `XDG_STATE_HOME` | `~/.local/state` | State root para `wezterm/repo-pins.txt`, `custom-modes.tsv`, `mode-order.txt` |
+
+**Regra:** nunca hardcode paths específicos de máquina em `wezterm.lua`. Se precisa de um path novo, adiciona auto-detect + env var override seguindo o mesmo padrão.
+
 ## Dependências runtime
 
 Requeridas:

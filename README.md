@@ -106,6 +106,15 @@ repos
 ./install.sh deps      # check dependencies only
 ```
 
+### Custom paths
+
+`wezterm.lua` auto-detects Git Bash across the three common install locations (`C:\Program Files\Git\`, `%USERPROFILE%\AppData\Local\Programs\Git\`, `C:\Program Files (x86)\Git\`) and assumes repos live in `~/Documents/github/`. If your machine differs, override with environment variables — either in Windows System Properties → Environment Variables, or in your `~/.bash_profile`:
+
+| Variable | Default | Used by |
+|---|---|---|
+| `GITHUB_DIR` | `%USERPROFILE%\Documents\github` | `wezterm.lua` startup cwd **and** launcher repo discovery |
+| `WEZAI_GIT_BASH` | auto-detected | `wezterm.lua` as shell `default_prog` |
+
 ## Usage
 
 ```
