@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# terminal-setup installer
+# wezai installer
 # Copies WezTerm + Claude statusline configs into the user's system.
 # Backs up any existing files first (*.bak-YYYYMMDD-HHMMSS).
 #
@@ -91,7 +91,7 @@ check_deps() {
 
 main() {
   local what="${1:-all}"
-  log "terminal-setup installer"
+  log "wezai installer"
   info "repo: $REPO_DIR"
   info "home: $HOME"
   echo

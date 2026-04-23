@@ -1,8 +1,8 @@
 <p align="center">
-  <img alt="terminal-setup launcher" src="docs/screenshots/repos.png" width="900">
+  <img alt="wezai launcher" src="docs/screenshots/repos.png" width="900">
 </p>
 
-<h1 align="center">terminal-setup</h1>
+<h1 align="center">wezai</h1>
 
 <p align="center">
   <em>A fast repo + worktree + Claude Code launcher for WezTerm on Windows.</em><br>
@@ -79,8 +79,8 @@ winget install wez.wezterm junegunn.fzf jqlang.jq
 Install:
 
 ```bash
-git clone https://github.com/Joorgem/terminal-setup.git ~/Documents/github/terminal-setup
-cd ~/Documents/github/terminal-setup
+git clone https://github.com/Joorgem/wezai.git ~/Documents/github/wezai
+cd ~/Documents/github/wezai
 ./install.sh
 ```
 
@@ -191,7 +191,7 @@ Slashes in branch names become `--` on disk. `git worktree prune` runs automatic
 ## Updating
 
 ```bash
-cd ~/Documents/github/terminal-setup
+cd ~/Documents/github/wezai
 git pull
 ./install.sh
 ```
@@ -246,7 +246,7 @@ Candidates under evaluation. None are commitments. Issues and PRs welcome if you
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md). The project is small and opinionated — please read the scope note before opening a large PR.
 
-For open-ended ideas, use [GitHub Discussions](https://github.com/Joorgem/terminal-setup/discussions).
+For open-ended ideas, use [GitHub Discussions](https://github.com/Joorgem/wezai/discussions).
 
 ## Security
 

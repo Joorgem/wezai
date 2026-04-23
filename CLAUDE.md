@@ -22,7 +22,7 @@ Isso tem implicações práticas em várias decisões (ver "Armadilhas do Window
 ## Estrutura
 
 ```
-terminal-setup/
+wezai/
 ├── README.md                      # docs para humanos (instalação, uso, teclas)
 ├── CLAUDE.md                      # este arquivo — contexto para agentes
 ├── .gitattributes                 # força LF em *.sh/*.lua
@@ -126,7 +126,7 @@ O `▸` (pointer) pode renderizar como `)` em fontes sem o glifo. A config `wezt
 O launcher está rodando aqui mesmo (você provavelmente está dentro do WezTerm agora). Um bug no `repo-launcher.sh` pode travar o login shell na próxima vez que abrir uma janela.
 
 **Fluxo seguro**:
-1. Editar dentro do repo (`~/Documents/github/terminal-setup/wezterm/`).
+1. Editar dentro do repo (`~/Documents/github/wezai/wezterm/`).
 2. **Validar sintaxe primeiro**: `bash -n wezterm/repo-launcher.sh`.
 3. Testar em subshell isolado antes de instalar:
    ```bash
@@ -190,14 +190,14 @@ Conventional commits:
 - `docs:` README/CLAUDE.md
 - `style:` formatação/espaçamento sem lógica
 
-Exemplos do histórico: `feat: initial terminal-setup`, `fix: worktree path conversion on MSYS`.
+Exemplos do histórico: `feat(modes): add codex built-in, custom modes, and reorder editor`, `fix: worktree path conversion on MSYS`.
 
 Escopo opcional entre parênteses quando útil: `feat(branches): …`, `fix(preview): …`.
 
 ## Fluxo de publicação
 
 ```bash
-cd ~/Documents/github/terminal-setup
+cd ~/Documents/github/wezai
 # editar
 bash -n wezterm/repo-launcher.sh   # validar sintaxe
 git add . && git commit -m "..." && git push
@@ -208,6 +208,6 @@ Colaboradores puxam com `git pull && ./install.sh`.
 
 ## Contatos
 
-- Repo: https://github.com/Joorgem/terminal-setup (MIT, público)
+- Repo: https://github.com/Joorgem/wezai (MIT, público)
 - Owner: Joorgem
 - Colaboradores atuais: SuperXitao

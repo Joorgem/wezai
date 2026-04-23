@@ -8,8 +8,8 @@
 
 set -euo pipefail
 
-DEMO_DIR="${DEMO_DIR:-$HOME/.cache/terminal-setup-demo}"
-DEMO_STATE="${DEMO_STATE:-$HOME/.cache/terminal-setup-demo-state}"
+DEMO_DIR="${DEMO_DIR:-$HOME/.cache/wezai-demo}"
+DEMO_STATE="${DEMO_STATE:-$HOME/.cache/wezai-demo-state}"
 ACTION="${1:-}"
 
 teardown() {

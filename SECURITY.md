@@ -4,7 +4,7 @@
 
 This project is a local terminal launcher — it doesn't handle authentication, network traffic, or sensitive data directly. However, if you find a vulnerability (e.g. shell injection, unsafe handling of untrusted input, or a bug in `install.sh` that could overwrite arbitrary files), please report it privately.
 
-Use GitHub's [security advisory](https://github.com/Joorgem/terminal-setup/security/advisories/new) feature. **Do not open a public issue.**
+Use GitHub's [security advisory](https://github.com/Joorgem/wezai/security/advisories/new) feature. **Do not open a public issue.**
 
 We aim to acknowledge reports within 7 days.
 
